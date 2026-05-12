@@ -4,6 +4,8 @@
 
 🌐 **Live Site**: [prodkeys.anydoor.cc](https://prodkeys.anydoor.cc)
 
+🔗 **Companion Site**: <img src="https://switchfirmware.org/assets/brand/logo-mark.svg" width="20" height="20" valign="middle" /> [SwitchFirmware.org](https://switchfirmware.org/) — Nintendo Switch firmware downloads with MD5/SHA-256 verification, emulator setup guides and troubleshooting.
+
 ---
 
 ## About
