@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+<head>
+  {% include "partials/head.njk" %}
+</head>
+<body>
+  {% include "partials/header.njk" %}
+  <main>
+    {{ content | safe }}
+  </main>
+  {% include "partials/footer.njk" %}
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

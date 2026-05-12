@@ -1,0 +1,17 @@
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo" aria-label="{{ site.name }} home">
+      <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M7 10V8a5 5 0 0 1 10 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <rect x="3" y="10" width="18" height="12" rx="3" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="12" cy="16" r="1.5" fill="currentColor"/>
+      </svg>
+      ProdKeys
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a>
+      <a href="/#downloads">Downloads</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+  </div>
+</header>

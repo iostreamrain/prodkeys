@@ -1,0 +1,14 @@
+{
+  "name": "prodkeys-anydoor-cc",
+  "version": "1.0.0",
+  "description": "Nintendo Switch Prod Keys & Title Keys Download - Latest versions for Ryujinx, Yuzu, Eden, Suyu and more",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "generate": "node scripts/generate-versions.js && eleventy"
+  },
+  "type": "module",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

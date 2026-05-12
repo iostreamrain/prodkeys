@@ -1,0 +1,123 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: versions
+  size: 1
+  alias: v
+permalink: "/downloads/{{ v.slug }}/"
+eleventyComputed:
+  title: "Nintendo Switch Prod Keys v{{ v.version }} Download | prodkeys.anydoor.cc"
+  description: "Download Nintendo Switch prod.keys v{{ v.version }} ({{ v.fileSize }}) for Ryujinx, Yuzu, Eden, Suyu and all Switch emulators. Free direct download."
+  jsonLd: >
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Nintendo Switch Prod Keys v{{ v.version }}",
+      "applicationCategory": "GameUtilityApplication",
+      "operatingSystem": "Windows, macOS, Linux, Android",
+      "softwareVersion": "{{ v.version }}",
+      "description": "Nintendo Switch production keys v{{ v.version }} for use with Switch emulators including Ryujinx, Yuzu, Eden, Suyu.",
+      "url": "{{ site.url }}/downloads/{{ v.slug }}/",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+---
+
+<!-- Breadcrumb -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="/#downloads">Downloads</a></li>
+    <li aria-hidden="true">/</li>
+    <li aria-current="page">v{{ v.version }}</li>
+  </ol>
+</nav>
+
+<!-- Version Page Hero -->
+<section class="version-hero">
+  <div class="version-tag">
+    <code>v{{ v.version }}</code>
+    {% if loop.first %}<span class="badge-latest">Latest</span>{% endif %}
+  </div>
+  <h1>Prod Keys v{{ v.version }}</h1>
+  <p class="version-desc">Nintendo Switch prod.keys and title.keys for firmware v{{ v.version }}. Compatible with all major Switch emulators.</p>
+
+  <div class="version-meta-row">
+    <span class="meta-item">
+      <strong>Source:</strong> {{ v.source }}
+    </span>
+    <span class="meta-item">
+      <strong>File:</strong> {{ v.filename }}
+    </span>
+    <span class="meta-item">
+      <strong>Size:</strong> {{ v.fileSize }}
+    </span>
+  </div>
+
+  <a href="{{ v.downloadUrl }}" class="btn-download btn-download-lg" download>
+    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2a1 1 0 0 1 1 1v8.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4A1 1 0 0 1 5.707 9.293L8 11.586V3a1 1 0 0 1 1-1z"/><path d="M3 15a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z"/></svg>
+    Download v{{ v.version }} ({{ v.fileSize }})
+  </a>
+</section>
+
+<!-- Installation Instructions -->
+<section class="section">
+  <h2>Installation Instructions</h2>
+  <p>After downloading <code>{{ v.filename }}</code>, follow these steps:</p>
+
+  <div class="install-steps">
+    <div class="step">
+      <span class="step-num">1</span>
+      <div>
+        <strong>Extract the zip file</strong>
+        <p>Unzip <code>{{ v.filename }}</code> to get <code>prod.keys</code> and <code>title.keys</code>.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">2</span>
+      <div>
+        <strong>Locate your emulator's keys folder</strong>
+        <p>
+          Ryujinx: <code>File → Open Ryujinx Folder → system/</code><br>
+          Yuzu/Eden/Suyu: <code>File → Open Emulator Folder → keys/</code><br>
+          Android emulators: <code>Internal Storage/Android/data/[package]/files/keys/</code>
+        </p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">3</span>
+      <div>
+        <strong>Copy the keys files</strong>
+        <p>Place <code>prod.keys</code> and <code>title.keys</code> into the keys folder.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">4</span>
+      <div>
+        <strong>Restart your emulator</strong>
+        <p>Keys are automatically detected on startup. No additional configuration needed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Other Versions Navigation -->
+<section class="section">
+  <h2>Other Versions</h2>
+  <p><a href="/#downloads">View full version history</a> or jump to a specific version:</p>
+  <div class="version-nav-grid">
+    {% for other in versions %}
+    {% if other.version != v.version %}
+    <a href="/downloads/{{ other.slug }}/" class="version-nav-item">
+      v{{ other.version }}
+      {% if loop.first %}<span class="badge-latest-sm">Latest</span>{% endif %}
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>
